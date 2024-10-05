@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Mem",
+  "version": "1.1",
+  
+  "icons": {
+    "28": "1.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "https://*/*" ],
+      "js": [  "content.js" ]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+	  "storage",
+	  "tabs",
+    "webRequest",
+    "pageCapture"
+  ],
+  "host_permissions": [
+    "https://mem.upread.ru/*"
+  ],
+  "optional_host_permissions":[
+    "https://*/*",
+    "http://*/*"
+  ],
+  "action": {
+        "default_title": "mem.upread.ru",
+        "default_icon": "1.png",
+        "default_popup": "popup.html"
+    }
+    ,"background": {
+      "service_worker": "background.js",
+      "mode": "module"
+    }
+}
