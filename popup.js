@@ -24,3 +24,9 @@ document.getElementById('captureButton').addEventListener('click', () => {
       chrome.runtime.sendMessage({ action: 'capturePage', tabId: activeTab.id });
   });
 });
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "closePopup") {
+    window.close();
+  }
+});

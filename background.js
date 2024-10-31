@@ -25,17 +25,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                   .then(response => {
                       if (response.ok) {
                           chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-                            chrome.tabs.sendMessage(tabs[0].id, { action: "showAlert", message: 'Страница сохранена успешно' });
+                            chrome.tabs.sendMessage(request.tabId, { action: "showAlert", message: 'Страница сохранена успешно' });
                           });
                       } else {
                         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-                            chrome.tabs.sendMessage(tabs[0].id, { action: "showAlert", message: 'Ошибка при отправке страницы' });
+                            chrome.tabs.sendMessage(request.tabId, { action: "showAlert", message: 'Ошибка при отправке страницы' });
                           });
                       }
                   })
                   .catch(error => {
                     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-                        chrome.tabs.sendMessage(tabs[0].id, { action: "showAlert", message:'Ошибка при отправке страницы' });
+                        chrome.tabs.sendMessage(request.tabId, { action: "showAlert", message:'Ошибка при отправке страницы' });
                       });
                   });
 

@@ -2,15 +2,18 @@
 <html>
   <head>
   <meta charset="UTF-8">
-    <title>MHT 1.2</title>
+    <title>MHT 1.3</title>
+    <link rel="stylesheet" type="text/css" href="css/bulma.min.css">
   </head>
 <body>
-  <button id="captureButton">Сохранить страницу</button>
-  <br><br><br>
-  <input type="text" id="keym"><br>
-  <button id="saveKeyButton">Сохранить ключ</button>
-  <br><br>
-  <a href="https://mem.upread.ru/lk.php" target="_blank">ваши страницы</a>
+  <div style="text-align: center;padding: 10px;">
+    <button id="captureButton" class="button is-link is-small">Сохранить страницу</button>
+    <hr>
+    <input type="text" id="keym" class="input is-small"><br>
+    <button id="saveKeyButton" class="button is-primary is-small">Сохранить ключ</button>
+    <hr>
+    <a href="https://mem.upread.ru/lk.php" target="_blank" class="is-small">ваши страницы</a>
+  </div>
   <script src="popup.js"></script>
 </body>
 </html>
