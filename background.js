@@ -24,13 +24,19 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                   })
                   .then(response => {
                       if (response.ok) {
-                          console.log('MHTML файл успешно отправлен');
+                          chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+                            chrome.tabs.sendMessage(tabs[0].id, { action: "showAlert", message: 'Страница сохранена успешно' });
+                          });
                       } else {
-                          console.error('Ошибка при отправке MHTML файла');
+                        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+                            chrome.tabs.sendMessage(tabs[0].id, { action: "showAlert", message: 'Ошибка при отправке страницы' });
+                          });
                       }
                   })
                   .catch(error => {
-                      console.error('Ошибка сети:', error);
+                    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+                        chrome.tabs.sendMessage(tabs[0].id, { action: "showAlert", message:'Ошибка при отправке страницы' });
+                      });
                   });
 
                     
