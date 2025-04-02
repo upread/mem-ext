@@ -16,7 +16,8 @@
 	  "storage",
 	  "tabs",
     "webRequest",
-    "pageCapture"
+    "pageCapture",
+    "downloads"
   ],
   "host_permissions": [
     "https://mem.upread.ru/*"
